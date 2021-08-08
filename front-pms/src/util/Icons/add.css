@@ -1,0 +1,11 @@
+.svg{
+    cursor: pointer;
+    position: absolute;
+    right: -10px;
+}
+.svg:hover path{
+    fill: #707070;
+}
+.svg:hover circle{
+    fill: white;
+}

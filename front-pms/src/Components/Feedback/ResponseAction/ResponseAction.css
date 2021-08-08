@@ -1,0 +1,167 @@
+.ResponseAction{
+    padding: 30px 200px;
+}
+.Container{
+    border: 1px solid #A8A8A8;
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    padding: 20px;
+    height: 620px;
+}
+.TopicContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.Title{
+    margin: 10px 0;
+    color: #303030;
+}
+.Head2{
+    display: flex;
+    justify-content: space-between;
+}
+.Head3 .Sec{
+    display: flex;
+    justify-content: left;
+    margin: 2px 0 0 0;
+}
+.Head3 .Sec p{
+    text-transform: uppercase;
+    color: #57c857;
+    font-size: 0.8rem;
+}
+.Sec{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.Date, .Author{
+    color: #303030;
+}
+label{
+    margin-right: 10px;
+    font-size: 0.7rem;
+    color: #666666;
+}
+.SubmitButton{
+    padding: 10px 30px;
+    background-color: #574F7D;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    margin: 20px 10px;
+}
+
+.SubmitButton:active{
+    transform: translate(2px, 2px);
+}
+.SubmitButton:hover{
+    background-color: #403961;
+}
+.SubmitButton:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
+.BackButton{
+    padding: 10px 30px;
+    border-radius: 30px;
+    color: rgb(48, 48, 48);
+    cursor: pointer;
+    border: 1px solid rgb(48, 48, 48);
+    transition: 0.3s;
+    margin: 20px 10px;
+}
+
+.BackButton:active{
+    transform: translate(2px, 2px);
+}
+.BackButton:hover{
+    background-color: #909090;
+    color: white;
+}
+.CancleButton{
+    padding: 10px 30px;
+    background-color: #b64f4f;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    margin: 20px 10px;
+}
+
+.CancleButton:active{
+    transform: translate(2px, 2px);
+}
+.CancleButton:hover{
+    background-color: #8b3232;
+}
+.Backdrop{
+    position: absolute;
+    background-color: #0f0f0f94;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 50px 200px;
+    z-index: 1;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.last{
+    color: #4a4a4a;
+    font-size: 0.8rem;
+}
+.QuestionContainer{
+    overflow-y: scroll;
+    background-color: #f1f1f1 ;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 20px;
+    height: 420px;
+}
+.QuestionContainer::-webkit-scrollbar{
+    width: 10px;
+    background-color: #BCB8CB;
+    border-radius: 20px;
+    /* padding: 2px; */
+}
+.QuestionContainer::-webkit-scrollbar-thumb{
+    background: #4F3A65;
+    border-radius: 20px;
+    border: 2px solid #BCB8CB;
+    height: 10%;
+}
+.buttonSection{
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.loading{
+    color: white;
+}
+.Content{
+    background-color: white;
+    border-radius: 20px;
+}
+.MessageHead{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px;
+    
+    text-align: center;
+    color: white;
+}
+.Link{
+    padding: 20px;
+    text-align: center;
+}
+.Link a{
+    text-decoration: none;
+    text-transform: uppercase;
+}

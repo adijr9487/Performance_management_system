@@ -1,0 +1,16 @@
+.Button{
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #574F7D;
+    display: inline-block;
+    text-align: center;
+    border: 2px solid transparent;
+    color: white;
+}
+.Button:hover{
+    border-radius: 50px;
+    border-color: #574F7D;
+    background-color: white;
+    color: #574F7D;
+    cursor: pointer;
+}

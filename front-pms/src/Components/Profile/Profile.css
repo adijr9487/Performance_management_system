@@ -1,0 +1,21 @@
+.Profile{
+    padding: 30px 50px;
+}
+.Container{
+    width: 400px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 40px;
+    margin: auto;
+}
+.Entry{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.Personal{
+    margin-bottom: 50px;
+}
+.Container .Entry p{
+    color: #574F7D
+}

@@ -1,0 +1,133 @@
+.CreateQ{
+    border-radius: 20px;
+    border: 1px solid #A8A8A8;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+}
+.DefaultSection{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    align-items: center;
+}
+.p{
+    padding: 5px;
+}
+.p1{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 10px 0;
+}
+.p2{
+    display: inline-block;
+}
+.p2 .Field{
+    width: 100px;
+    float: right;
+}
+.p2 .label{
+    float: left;
+}
+input{
+    background-color: #E2E2E2;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 10px;
+}
+input[name="question"]{
+    width: 300px;
+}
+.p:hover{
+    background-color: #F7F7F7;
+}
+.Options{
+    display: flex;
+    padding: 0 10px;
+    flex-wrap: wrap;
+}
+.ClearAll{
+    text-transform: uppercase;
+    color: #574F7D;
+    cursor: pointer;
+}
+.ClearAll:hover{
+    text-transform: uppercase;
+    color: #3a306b;
+}
+.Option{
+    background-color: white;
+    border: 2px solid #A8A8A8;
+    border-radius: 40px;
+    padding: 8px 15px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-transform: uppercase;
+    max-width: 550px;
+    word-break: break-all;
+    animation: optionIni 0.2s ease-in backwards;
+}
+@keyframes optionIni{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.Option .Sym{
+    position: absolute;
+    right: -13px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.OptionINPUT{
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 10px;
+
+}
+.Warning{
+    position: absolute;
+    font-size: 0.6rem;
+    bottom: -10px;
+    right: 10px;
+    color: #e03e3e;
+}
+.OptionInput{
+    width: 100px;
+    padding-right: 20px;
+}
+.AddButton{
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: 2px solid #574F7D;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    color: #574F7D;
+}
+.AddButton:hover{
+    background: #574F7D;
+    color: white;
+}
+.AddButton:disabled{
+    border: 2px solid #E2E2E2;
+    cursor: not-allowed;
+    color: #d4d4d4;
+}
+.AddButton:disabled:hover{
+    background-color: #F9F9F9;
+    color: #d4d4d4;
+    
+}

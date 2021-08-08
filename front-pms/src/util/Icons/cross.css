@@ -1,0 +1,12 @@
+.svg{
+    cursor: pointer;
+}
+.svg path{
+    transition: 0.3s;
+}
+.svg:hover path{
+    fill: white;
+}
+.svg:hover circle{
+    fill: #707070;
+}

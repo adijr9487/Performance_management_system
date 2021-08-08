@@ -1,0 +1,30 @@
+.Slider{
+    border-radius: 50px;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #574F7D;
+    /* padding: 5px; */
+}
+.Option{
+    margin: 3px;
+    float: left;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.8rem !important;
+    color: #4F3A65;
+    transition: 0.3s;
+}
+.Option:hover{
+    color: #1c1127;
+}
+.active{
+    margin: 3px;
+    font-size: 0.8rem !important;
+    padding: 10px 20px;
+    float: left;
+    cursor: pointer;
+    color: white;
+    border-radius: 50px;
+}

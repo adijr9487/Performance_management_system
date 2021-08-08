@@ -1,0 +1,70 @@
+.FeedbackPre{
+    height: 300px;
+    width: 300px;
+    display: inline-block;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    padding: 20px;
+    color: #666666;
+    background-color: white;
+    box-shadow: 2px 2px 3px #574f7da8;
+    font-size: 0.8rem;
+    margin-bottom: 50px;
+}
+/* normal = 0.8rem
+sm = 0.6rem */
+.Topic{
+    color: black;
+}
+.Info{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.Vals{
+    display: flex;
+    align-items: flex-end;
+}
+.Label{
+    font-size: 0.7rem;
+    color: #A2A2A2;
+}
+.Value{
+    /* font-size: 1rem; */
+    margin-left: 10px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #666666;
+    padding: 4px;
+    border-radius: 4px;
+}
+.ForwardLink{
+    text-decoration: underline;
+    color: #95ADBE;
+}
+.ForwardLink:hover{
+    color: #4e697c;
+}
+
+/* question preview  */
+.QuesPre{
+    background-color: #DFF0EA;
+    border: 1px solid #D8D8D8;
+    margin: 20px -20px;
+    padding: 5px 20px ;
+    height: 100px;
+    overflow-y: scroll;
+}
+.QuesPre p{
+    font-size: 1rem;
+    margin: 5px 0;
+}
+.QuesPre::-webkit-scrollbar{
+    width: 6px;
+}
+.QuesPre::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #707070;
+}

@@ -1,0 +1,101 @@
+.DisplayQ{
+    border-radius: 20px;
+    margin: 30px 10px;
+    box-shadow: 0 2px 7px #bebebe;
+    animation: initialize 0.1s ease-out backwards;
+    z-index: -100;
+    background-color: white;
+}
+@keyframes initialize{
+    0%{
+        transform: translateY(50%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.QSec{
+    display: flex;
+    padding: 10px 20px ;
+}
+.QuestionStatement{
+    font-size: 1rem;
+    align-items: center;
+    display: flex;
+    width: 80%;
+}
+.ED{
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Button{
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: 2px solid #574F7D;
+    cursor: pointer;
+    text-align: center;
+    color: #574F7D;
+    font-size: 0.7rem;
+    margin: 0 0 0 10px;
+}
+.Button:hover{
+    color: white;
+    background: #574F7D;
+}
+.Options{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #e1e1e1;
+    padding: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.Option{
+    background-color: white;
+    border: 2px solid #777777;
+    border-radius: 40px;
+    padding: 5px 7px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-transform: uppercase;
+    max-width: 550px;
+    word-break: break-all;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.Option:hover{
+    background-color: #777777;
+    border: 2px solid white;
+    color: white;
+}
+.ActiveAnswer{
+    background-color: #777777;
+    border: 2px solid white;
+    color: white;
+}
+input{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 10px;
+    border: 1px solid #777777;
+}
+.AnswerInput{
+    width: 80%;
+    background-color: white;
+}
+.Text{
+    display: flex;
+    justify-content: space-around;
+}
+.limit{
+    font-size: 0.8rem;
+    color: #6e6e6e;
+}

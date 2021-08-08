@@ -1,0 +1,33 @@
+.Portfolio{
+    padding: 30px 50px;
+}
+hr{
+    margin-bottom: 20px;
+}
+.Container{
+    border-radius: 20px;
+    padding: 30px;
+    background-color: #574f7d4b;
+    max-height: 500px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+}
+.Container::-webkit-scrollbar{
+    width: 30px;
+    background-color: #BCB8CB;
+    border-radius: 20px;
+    /* padding: 2px; */
+}
+.Container::-webkit-scrollbar-thumb{
+    background: #4F3A65;
+    border-radius: 20px;
+    border: 4px solid #BCB8CB;
+    height: 10%;
+}
+
+.SliderContainer{
+    /* width: 400px; */
+}

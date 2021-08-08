@@ -1,0 +1,61 @@
+.Login{
+    background-color: white;
+    font-family: sans-serif;
+    width: 100%;
+    position: relative;
+}
+.FormSection{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-flow: column;
+    margin: 50px 0;
+    
+}
+.ButtonLogin{
+    padding: 15px 30px;
+    color: white;
+    border-radius: 5px;
+    transition: 0.1s;
+    font-weight: 600;
+    margin-top: 30px;
+    float: right;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: #574F7D;
+    box-sizing: border-box;
+}
+.ButtonLogin:hover{
+    background: #4F3A65;
+    color: white;
+    box-sizing: border-box;
+}
+.ButtonLogin:disabled{
+    box-sizing: border-box;
+    background: #949494;
+    color: white;
+    border: none;
+    cursor: not-allowed;
+}
+.message{
+    position: absolute;
+    transform: translateY(30px);
+    width: 100%;
+    font-size: 0.8rem;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 5px;
+    animation: message 0.3s ease-out backwards;
+}
+@keyframes message{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(30px);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,70 @@
+.PopUp{
+    display: flex;
+    flex-flow: column;
+    font-size: 1rem;
+    border-radius: 10px;
+    width: 400px;
+    /* border: 1px solid #eee; */
+    box-shadow: 1px 1px 3px rgba(122, 122, 122, 0.267);
+
+    margin: 100px;
+}
+.Header{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;
+    background-color: #69C268;
+}
+.Header p{
+    color: white;
+    text-align: center;
+}
+.Main{
+    padding: 40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: white;
+    z-index: 1;
+}
+.Main p{
+    font-size: 0.8rem;
+}
+.section{
+    display: flex;
+    flex-flow: column; 
+    margin: 10px 0;  
+}
+.subSection{
+    display: flex;
+}
+.copyButton{
+    margin: 10px 0;
+    padding: 7px;
+    right: 0;
+    transform: scale(1.2);
+}
+.section .popInput{
+    background-color: #DDDDDD;
+    border: 1px solid #c4c4c4;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: #424242;
+    margin: 10px 0;
+    width: 100%;
+    transition: 0.3s;
+    font-family: monospace;
+}
+.section .popInput:focus{
+    background-color: #e7e7e7;
+    border: 1px solid #b8b8b8;
+}
+.Redirect{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    margin: 20px 0 0 0;
+    color: #5f7adf;
+}
+.Redirect:hover{
+    color: #2d45a5;
+}
