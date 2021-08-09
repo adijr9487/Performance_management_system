@@ -15,7 +15,7 @@ export default function objective(width) {
           transform="translate(568 530)"
           fill="#fff"
           stroke="#574f7d"
-          stroke-width="1"
+          strokeWidth="1"
         >
           <rect width="34" height="34" rx="7" stroke="none" />
           <rect x="0.5" y="0.5" width="33" height="33" rx="6.5" fill="none" />
@@ -26,7 +26,7 @@ export default function objective(width) {
           transform="translate(578 540)"
           fill="#574f7d"
           stroke="#574f7d"
-          stroke-width="1"
+          strokeWidth="1"
         >
           <rect width="14" height="14" stroke="none" />
           <rect x="0.5" y="0.5" width="13" height="13" fill="none" />

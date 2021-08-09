@@ -12,6 +12,7 @@ import {
 
 //classes
 import classes from "./SignUp.css";
+import Loading from "../../../../util/Loading/Loading";
 
 const SignUp = (props) => {
   const [FormData, setFormData] = useState({
@@ -68,7 +69,7 @@ const SignUp = (props) => {
         // password some
 
         axios
-          .post("https://glacial-falls-88901.herokuapp.com/user/signup", {
+          .post("/user/signup", {
             email: FormData.email.value,
             password: FormData.password.value,
             name: FormData.name.value,
@@ -146,6 +147,7 @@ const SignUp = (props) => {
         {errorMsg.type === "password" ? (
           <p className={classes.Error}>Password does not match!</p>
         ) : null}
+        {/* <Loading dark/> */}
         <button
           disabled={!FormValid}
           className={classes.ButtonSignUp}

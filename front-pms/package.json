@@ -147,5 +147,7 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "proxy": "https://glacial-falls-88901.herokuapp.com"
 }
+

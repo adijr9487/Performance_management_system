@@ -10,7 +10,7 @@ const Create = (props) => {
     return (
         <div className={classes.Create}>
             <hr />
-            <CreateForm uid={props.uid} name={props.name}/>
+            <CreateForm anonymous={props.anonymous} uid={props.uid} name={props.name}/>
         </div>
     )
 }

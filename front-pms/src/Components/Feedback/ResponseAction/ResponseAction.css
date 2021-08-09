@@ -165,3 +165,6 @@ label{
     text-decoration: none;
     text-transform: uppercase;
 }
+.NameField{
+    margin: 10px;
+}

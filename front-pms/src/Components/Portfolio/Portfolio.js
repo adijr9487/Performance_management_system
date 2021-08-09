@@ -16,9 +16,7 @@ const Portfolio = (props) => {
   useEffect(() => {
     if (slider === "Joined") {
       axios
-        .get(
-          `https://glacial-falls-88901.herokuapp.com/response/${props.uid}/joined`
-        )
+        .get(`/response/${props.uid}/joined`)
         .then((res) => {
           console.log(res);
           setPortfolioData(res.data);
@@ -30,9 +28,7 @@ const Portfolio = (props) => {
         });
     } else if (slider === "Created") {
       axios
-        .get(
-          `https://glacial-falls-88901.herokuapp.com/feedback/${props.uid}/created`
-        )
+        .get(`/feedback/${props.uid}/created`)
         .then((res) => {
           console.log(res);
           setPortfolioData(res.data);

@@ -115,7 +115,7 @@ Route.get("/:user_uid/view_response/:feedback_uid", async (req, res, next)=>{
                 count++;
                 
                 if(doc.data().status === "submitted"){
-                    tempFeedbackList.push({answer: doc.data().answer_data, user_uid: doc.data().user_uid, name: doc.data().user_name})
+                    tempFeedbackList.push({answer: doc.data().answer_data, user_uid: doc.data().user_uid, name: doc.data().user_name, type: doc.data().type})
                 }
             })
             console.log(count, snapshot.size)

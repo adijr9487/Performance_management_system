@@ -16,20 +16,22 @@ const CreateForm = (props) => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
   const [returnData, setReturnData] = useState(null);
 
+  const [name, setName] = useState("Anonymous");
+
   const [finalReview, setFinalReview] = useState(false);
   const [loading, setLoading] = useState(false);
   let history = useHistory();
 
   useEffect(() => {
-    console.log(props.name);
-    if (topic && QuestionList) {
-      console.log(topic.length);
-      if (topic.length > 0 && QuestionList.length > 0) {
-        setIsReadyToSubmit(true);
+      console.log(props.name);
+      if (topic && QuestionList) {
+        console.log(topic.length);
+        if (topic.length > 0 && QuestionList.length > 0) {
+          setIsReadyToSubmit(true);
+        }
+      } else {
+        setIsReadyToSubmit(false);
       }
-    } else {
-      setIsReadyToSubmit(false);
-    }
   }, [topic, QuestionList]);
 
   const Q_AddHandler = (data) => {
@@ -58,23 +60,41 @@ const CreateForm = (props) => {
   const createHandler = () => {
     if (finalReview) {
       setLoading(true);
-      console.log(props.uid, topic, QuestionList, props.name);
-      axios
-        .post("https://glacial-falls-88901.herokuapp.com/feedback/create", {
-          uid: props.uid,
-          topic: topic,
-          questionData: QuestionList,
-          author: props.name,
-        })
-        .then((res) => {
-          console.log(res);
-          setReturnData(res.data);
-          setFinalReview(false);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      if (props.anonymous) {
+        axios
+          .post("/anonymous/feedback/create", {
+            topic: topic,
+            questionData: QuestionList,
+            author: name,
+          })
+          .then((res) => {
+            console.log(res);
+            setReturnData(res.data);
+            setFinalReview(false);
+            setLoading(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        console.log(props.uid, topic, QuestionList, props.name);
+        axios
+          .post("/feedback/create", {
+            uid: props.uid,
+            topic: topic,
+            questionData: QuestionList,
+            author: props.name,
+          })
+          .then((res) => {
+            console.log(res);
+            setReturnData(res.data);
+            setFinalReview(false);
+            setLoading(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     } else {
       setFinalReview(true);
     }
@@ -140,6 +160,18 @@ const CreateForm = (props) => {
       <h1>Create New Feedback Form</h1>
       <div className={classes.Container}>
         <div className={classes.TopicContainer}>
+          {props.anonymous && (
+            <div className={classes.nameField}>
+              <label>Author</label>
+              <input
+                type="text"
+                style={{margin: "10px 0"}}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Anonymous"
+              />
+            </div>
+          )}
           <label className={classes.label}>Topic</label>
           <input
             value={topic ? topic : ""}

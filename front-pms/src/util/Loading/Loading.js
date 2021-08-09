@@ -5,15 +5,21 @@ import React from "react";
 //classes
 import classes from "./Loading.css";
 
-const Loading = (prosp) => {
+const Loading = (props) => {
+
+  let style = {
+    borderColor: `${props.dark? "#000" : "#fff"} transparent transparent transparent`,
+    // width: `${props.small ? "20px" : "40px"}`,
+    // height: `${props.small ? "20px" : "40px"}`,
+    // border: `${props.small ? "3px solid" : "8px solid"}` 
+  }
+
   return (
-    <div className={classes.Loading}>
-      <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <div class={classes.lds_ring}>
+      <div style={style}></div>
+      <div style={style}></div>
+      <div style={style}></div>
+      <div style={style}></div>
     </div>
   );
 };

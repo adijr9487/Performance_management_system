@@ -52,7 +52,7 @@ const Login = (props) => {
       //if password matched
       console.log(FormData);
       axios
-        .post("https://glacial-falls-88901.herokuapp.com/user/login", {
+        .post("/user/login", {
           email: FormData.email.value,
           password: FormData.password.value,
         })

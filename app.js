@@ -7,6 +7,7 @@ const path = require("path")
 const {UserRoute} = require("./Routes/user-route")
 const {FeedbackRoute, getFeedbackUid} = require("./Routes/feedback-route")
 const ResponseRoute = require("./Routes/response-route")
+const anonymousRoute = require("./Routes/anonymous-route")
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use("/user", UserRoute)
 app.use("/feedback", FeedbackRoute)
 app.use("/response", ResponseRoute)
+
+app.use("/anonymous", anonymousRoute)
 
 //joininig to the build of client
 

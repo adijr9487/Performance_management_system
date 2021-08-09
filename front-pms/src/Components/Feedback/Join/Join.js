@@ -19,7 +19,7 @@ const Join = (props) => {
   const codeSubmitHandler = () => {
     console.log(joinCode);
     axios
-      .post("https://glacial-falls-88901.herokuapp.com/response/join", {
+      .post("/response/join", {
         code: joinCode,
         uid: props.uid,
       })

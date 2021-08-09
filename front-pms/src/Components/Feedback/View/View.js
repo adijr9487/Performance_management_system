@@ -9,43 +9,6 @@ import subjective from "./Subjective";
 //classes
 import classes from "./View.css";
 
-let responseData = {
-  topic: "This is your feedback",
-  author: "Aditi",
-  date: "Aug 03 2021",
-  questionData: [
-    {
-      options: ["Moreco", "Omni", "caltic", "wish"],
-      q_statement: "Do you like the way she talk?",
-      type: "Objective",
-    },
-    { word_limit: 250, q_statement: "Describe about her?", type: "Subjective" },
-    {
-      type: "Subjective",
-      word_limit: 250,
-      q_statement: "What you want from her?",
-    },
-  ],
-  answerData: [
-    {
-      answer: [1, "dasdasdsda", "dasdasdsda"],
-      user: "Aditya",
-    },
-    {
-      answer: [1, "dasdasdsda", "dasdasdsda"],
-      user: "Aditya",
-    },
-    {
-      answer: [1, "dasdasdsda", "dasdasdsda"],
-      user: "Aditya",
-    },
-    {
-      answer: [1, "dasdasdsda", "dasdasdsda"],
-      user: "Aditya",
-    },
-  ],
-};
-
 const View = (props) => {
   const [responseData, setResponseData] = useState(null);
   const [summary, setSummary] = useState(null);
@@ -55,10 +18,9 @@ const View = (props) => {
 
   useEffect(() => {
     console.log(params, props);
+    if(props.uid){
     axios
-      .get(
-        `https://glacial-falls-88901.herokuapp.com/feedback/${props.uid}/view_response/${params.feedbackId}`
-      )
+      .get(`/feedback/${props.uid}/view_response/${params.feedbackId}`)
       .then((res) => {
         console.log(res);
         setResponseData(res.data);
@@ -66,6 +28,7 @@ const View = (props) => {
       .catch((err) => {
         console.log(err, err.response);
       });
+    }
   }, []);
 
   useEffect(() => {
@@ -86,7 +49,7 @@ const View = (props) => {
               }
             });
             question.options.forEach((optionV, index) => {
-              SummaryEle[optionV] = (optionCount[index] * 100) / totalResponse;
+              SummaryEle[optionV] = Math.round((optionCount[index] * 100) / totalResponse);
             });
           } else {
             question.options.forEach((optionV, index) => {
@@ -151,7 +114,7 @@ const View = (props) => {
                 <div className={classes.QuestionBox}>
                   {responseData.questionData.map((question, index) => {
                     return (
-                      <div className={classes.Que}>
+                      <div key={index} className={classes.Que}>
                         <p className={classes.QuestionStatement}>
                           {question.q_statement}
                         </p>
@@ -221,13 +184,10 @@ const View = (props) => {
                     responseData.answerData.map((answers, index1) => {
                       return (
                         <div key={index1} className={classes.AnswerBox}>
-                          <p className={classes.user_title}>{answers.name}</p>
+                          <p className={classes.user_title}>{answers.name} {answers.type && `(${answers.type})`}</p>
                           <div className={classes.AnsContainer}>
                             {answers.answer.map((val, index) => {
-                              if (
-                                responseData.questionData[index].type ===
-                                "Objective"
-                              ) {
+                              if (responseData.questionData[index].type ==="Objective") {
                                 return (
                                   <p
                                     style={{

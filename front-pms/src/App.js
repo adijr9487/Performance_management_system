@@ -29,7 +29,10 @@ function App() {
   let history = useHistory();
 
   useEffect(()=>{
-
+    if(sessionStorage.getItem('anonym')){
+      history.push("/anonymous/give_feedback")
+      console.log("hello")
+    }
     if(sessionStorage.getItem('token')){
       setToken(JSON.parse(sessionStorage.getItem('token')))
       history.push("/")
@@ -50,17 +53,22 @@ function App() {
     history.push("/authentication")
             
   }
-  console.log(Token)
+
+  const setAnonymousFeedback = (data) => {
+    sessionStorage.setItem("anonym", JSON.stringify(data));
+    history.push("/anonymous/give_feedback")
+  }
+
   return (
     <div className="App">
       {
-        Token 
+        Token && Token.uid
         ?
         <React.Fragment>
             <Navbar user={Token} logoutHandler={logoutHandler}/>
           <Switch>
             <Route path="/" exact><HomePage user={Token}/></Route>
-            <Route path="/give_response/:responseId"><ResponseAction uid={Token.uid} type="give" uid={Token.uid}/></Route>
+            <Route path="/give_response/:responseId"><ResponseAction uid={Token.uid} type="give"/></Route>
             <Route path="/review_response/:responseId"><ResponseAction type="review" uid={Token.uid}/></Route>
             <Route path="/view_responses/:feedbackId" exact><View uid={Token.uid}/></Route>
             <Route path="/:userId/portfolio"><Portfolio uid={Token.uid}/></Route>
@@ -73,8 +81,11 @@ function App() {
         :
         <Switch>
           <Route path="/authenticate" >
-            <EntryPage authenticateUser={authenticationHandler}/>
+            <EntryPage AnonymousFeedbackData={setAnonymousFeedback} authenticateUser={authenticationHandler}/>
           </Route>
+          <Route path="/anonymous/give_feedback"><ResponseAction type="give"/></Route>
+          <Route path="/anonymous/create_feedback"><Create anonymous/></Route>
+          <Route path="/:feedback_uid/anonymous/:user_name/:code"><View /></Route>
           <Redirect to="/authenticate" />
         </Switch>
       }

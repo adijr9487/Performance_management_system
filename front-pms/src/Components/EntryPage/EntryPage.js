@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import axios from "axios"
+import { useHistory } from 'react-router'
 // Component
 import Form from "./Form/Form"
 import Input from "./Form/Input/Input"
@@ -7,9 +8,10 @@ import Input from "./Form/Input/Input"
 // classes
 import classes from "./EntryPage.css"
 import { VALIDATOR_MINLENGTH } from '../../util/Validator'
+import Loading from '../../util/Loading/Loading'
 
 const EntryPage = (props) => {
-
+    const history = useHistory()
     const [JoinCode, setJoinCode] = useState({
         code: {
             value: null,
@@ -27,14 +29,23 @@ const EntryPage = (props) => {
     const clickHandler = (e) => {
         e.preventDefault()
         console.log(JoinCode)
+        axios
+        .post("/anonymous/join", {code: JoinCode.code.value})
+        .then(res=>{
+            props.AnonymousFeedbackData({...res.data})
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 
     const createFormHandler = () => {
-
+        history.push("/anonymous/create_feedback")
     }
 
     return (
         <div className={classes.EntryPage}>
+            
             <div className={classes.Left}>
                 <div className={classes.LeftMain}>
                     <h1>FEEDBACK / PERFORMANCES MANAGEMENT SYSTEM</h1>
@@ -51,13 +62,14 @@ const EntryPage = (props) => {
                     <hr />
 
                     <div className={classes.Create}>
-                        <button onClick={createFormHandler} className={classes.Button}>INSTANT FEEDBACKS</button>
+                        <button disabled={true} onClick={createFormHandler} className={classes.Button}>INSTANT FEEDBACKS</button>
                         <p>Create an instant feedback form.</p>
                     </div>
                 </div>
             </div>
 
             <div className={classes.Right}>
+                
                 <Form authenticateUser={props.authenticateUser}/>
             </div>
         </div>

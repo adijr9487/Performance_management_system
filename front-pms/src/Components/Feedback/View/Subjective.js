@@ -15,7 +15,7 @@ export default function subjective(width) {
           transform="translate(2721 8472)"
           fill="#fff"
           stroke="#574f7d"
-          stroke-width="1"
+          strokeWidth="1"
         >
           <rect width="34" height="34" rx="7" stroke="none" />
           <rect x="0.5" y="0.5" width="33" height="33" rx="6.5" fill="none" />
@@ -27,7 +27,7 @@ export default function subjective(width) {
           transform="translate(2728.5 8482.5)"
           fill="none"
           stroke="#574f7d"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <line
           id="Line_204"
@@ -36,7 +36,7 @@ export default function subjective(width) {
           transform="translate(2728.5 8489.5)"
           fill="none"
           stroke="#574f7d"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <line
           id="Line_205"
@@ -45,7 +45,7 @@ export default function subjective(width) {
           transform="translate(2728.5 8496.5)"
           fill="none"
           stroke="#574f7d"
-          stroke-width="1"
+          strokeWidth="1"
         />
       </g>
     </svg>

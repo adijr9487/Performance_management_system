@@ -74,3 +74,15 @@ h1{
     color: white;
     box-sizing: border-box;
 }
+.Button:disabled{
+    background: #949494;
+    color: white;
+    cursor: not-allowed;
+}
+.BackDrop{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

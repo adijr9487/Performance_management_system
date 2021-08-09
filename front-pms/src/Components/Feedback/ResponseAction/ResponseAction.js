@@ -15,54 +15,65 @@ const ResponseAction = (props) => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
   const [submitted, setSubmitted] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const [name, setName] = useState(null)
   const [type, setType] = useState(props.type);
 
   let { responseId } = useParams();
   let history = useHistory();
 
   useEffect(() => {
-    if (type === "give") {
-      console.log(responseId, props.uid);
-      axios
-        .get(
-          `https://glacial-falls-88901.herokuapp.com/response/${responseId}/${props.uid}`
-        )
-        .then((res) => {
-          console.log(res);
-          setQuestionData(res.data.questionData);
-          setFormData({
-            date: res.data.date,
-            author: res.data.author,
-            topic: res.data.topic,
-            status: res.data.status,
-          });
-          setAnswerData(new Array(res.data.questionData.length).fill(null));
-        })
-        .catch((err) => {
-          console.log(err);
+    if(sessionStorage.getItem('anonym')){
+        let responseData = JSON.parse(sessionStorage.getItem('anonym'))
+        setQuestionData(responseData.questionData);
+        setFormData({
+            date: responseData.date,
+            author: responseData.author,
+            topic: responseData.topic,
+            status: responseData.status,
+            feedback_uid: responseData.feedback_uid
         });
-    } else if (type === "review") {
-      console.log(responseId, props.uid);
-      axios
-        .get(
-          `https://glacial-falls-88901.herokuapp.com/response/${responseId}/${props.uid}/review_response`
-        )
-        .then((res) => {
-          console.log(res);
-          setQuestionData(res.data.questionData);
-          setAnswerData(res.data.answerData);
-          setFormData({
-            date: res.data.date,
-            author: res.data.author,
-            topic: res.data.topic,
-            status: res.data.status,
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        setAnswerData(new Array(responseData.questionData.length).fill(null))
+
+    }else{
+        if (type === "give") {
+        console.log(responseId, props.uid);
+        axios
+            .get(`/response/${responseId}/${props.uid}`)
+            .then((res) => {
+            console.log(res);
+            setQuestionData(res.data.questionData);
+            setFormData({
+                date: res.data.date,
+                author: res.data.author,
+                topic: res.data.topic,
+                status: res.data.status,
+            });
+            setAnswerData(new Array(res.data.questionData.length).fill(null));
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+        } else if (type === "review") {
+        console.log(responseId, props.uid);
+        axios
+            .get(`/response/${responseId}/${props.uid}/review_response`)
+            .then((res) => {
+            console.log(res);
+            setQuestionData(res.data.questionData);
+            setAnswerData(res.data.answerData);
+            setFormData({
+                date: res.data.date,
+                author: res.data.author,
+                topic: res.data.topic,
+                status: res.data.status,
+            });
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+        }
     }
+
   }, []);
 
   const setAnswerHandler = (value, index) => {
@@ -78,12 +89,9 @@ const ResponseAction = (props) => {
     if (isReadyToSubmit === true) {
       setLoading(true);
       console.log("Submitted");
-
-      axios
-        .post(
-          `https://glacial-falls-88901.herokuapp.com/response/${responseId}/submit`,
-          { answerArray: AnswerData }
-        )
+    if(sessionStorage.getItem('anonym')){
+        axios
+        .post(`/anonymous/response/submit`, { answerArray: AnswerData , name: name, feedback_uid: formData.feedback_uid})
         .then((res) => {
           console.log(res);
           setLoading(false);
@@ -93,6 +101,20 @@ const ResponseAction = (props) => {
         .catch((err) => {
           console.log(err);
         });
+    }else{
+        axios
+        .post(`/response/${responseId}/submit`, { answerArray: AnswerData })
+        .then((res) => {
+          console.log(res);
+          setLoading(false);
+          setSubmitted(res.data);
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
     } else {
       setIsReadyToSubmit(true);
     }
@@ -100,6 +122,9 @@ const ResponseAction = (props) => {
 
   const backHandler = () => {
     console.log("go back");
+    if(sessionStorage.getItem('anonym')){
+        sessionStorage.removeItem('anonym')
+    }
     history.push("/");
   };
 
@@ -169,7 +194,7 @@ const ResponseAction = (props) => {
               {submitted.message}
             </div>
             <div className={classes.Link}>
-              <Link to={`/${props.uid}/portfolio`}>Go to Portfolio</Link>
+              {sessionStorage.getItem('anonym') ? <Link onClick={backHandler}>Go to Landing Page</Link> : <Link to={`/${props.uid}/portfolio`}>Go to Portfolio</Link>}
             </div>
           </div>
         </div>
@@ -215,6 +240,7 @@ const ResponseAction = (props) => {
               );
             })}
         </div>
+        {sessionStorage.getItem('anonym') && <div className={classes.NameField}><label>Name</label><input type="text" onChange={(e)=>{setName(e.target.value)}} value={name ? name : ""}/></div>}
         {type === "give" ? (
           <React.Fragment>
             <button onClick={submitHandler} className={classes.SubmitButton}>

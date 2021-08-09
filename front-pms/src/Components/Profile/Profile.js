@@ -11,9 +11,7 @@ const Profile = (props) => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://glacial-falls-88901.herokuapp.com/user/getUserData/${props.uid}`
-      )
+      .get(`/user/getUserData/${props.uid}`)
       .then((res) => {
         setUserData({
           ...res.data,

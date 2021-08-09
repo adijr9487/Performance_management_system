@@ -16,7 +16,7 @@ const PopUp = (props) => {
         if(props.linkData){
             setShare({
                 code: props.linkData.code,
-                link: props.linkData.link
+                link: `http://localhost:3000/${props.linkData.link}`
             })
         }
         
